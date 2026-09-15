@@ -36,8 +36,14 @@ base <- hogar_nbi %>%
   mutate(
     facpob = factor07 * mieperho,
     nbihog = nbi1 + nbi2 + nbi3 + nbi4 + nbi5,
-    NBI1_POBRE = if_else(nbihog > 0, 1, 0),
-    NBI2_POBRE = if_else(nbihog > 1, 1, 0)
+    NBI1_POBRE = case_when(
+      nbihog > 0 ~ 1,
+      TRUE ~ 0
+    ),
+    NBI2_POBRE = case_when(
+      nbihog > 1 ~ 1,
+      TRUE ~ 0
+    )
   )
 
 base$NBI1_POBRE <- labelled(base$NBI1_POBRE,
@@ -46,9 +52,6 @@ base$NBI2_POBRE <- labelled(base$NBI2_POBRE,
                             labels = c("Menos de dos NBI" = 0, "Al menos dos NBI" = 1))
 var_label(base$NBI1_POBRE) <- "Con al menos una NBI"
 var_label(base$NBI2_POBRE) <- "Con al menos dos NBI"
-
-table(base$NBI1_POBRE)
-table(base$NBI2_POBRE)
 
 
 # Variables geográficas ----
@@ -93,25 +96,56 @@ var_label(base$nbi3) <- "Poblacion en viviendas sin desague de ningun tipo"
 var_label(base$nbi4) <- "Poblacion en hogares con ninos (6 a 12) que no asisten a la escuela"
 var_label(base$nbi5) <- "Poblacion en hogares con alta dependencia economica"
 
+## Convertir a factor ----
 base_factor <- base %>%
-  mutate(across(c(NBI1_POBRE, NBI2_POBRE, area, region_natural, departamento), as_factor))
+  mutate(
+    NBI1_POBRE = as_factor(NBI1_POBRE),
+    NBI2_POBRE = as_factor(NBI2_POBRE),
+    area = as_factor(area),
+    region_natural = as_factor(region_natural),
+    departamento = as_factor(departamento)
+  )
 
-# Diseño de la encuesta ----
+## Diseño de la encuesta ----
 disenio <- svydesign(
-  ids     = ~conglome,
-  strata  = ~estrato,
+  ids = ~conglome,
+  strata = ~estrato,
   weights = ~facpob,
-  data    = base_factor,
-  nest    = TRUE
+  data = base_factor,
+  nest = TRUE
+)
+
+## Resultados ----
+tab_nbi <- svymean(
+  ~nbi1 + nbi2 + nbi3 + nbi4 + nbi5,
+  disenio,
+  na.rm = TRUE
+)
+
+tab_nbi1_pobre <- svymean(
+  ~NBI1_POBRE,
+  disenio,
+  na.rm = TRUE
+)
+
+tab_area <- svyby(
+  ~NBI1_POBRE,
+  ~area,
+  disenio,
+  svymean,
+  na.rm = TRUE
+)
+
+tab_regnat <- svyby(
+  ~NBI1_POBRE,
+  ~region_natural,
+  disenio,
+  svymean,
+  na.rm = TRUE
 )
 
 
-# Resultados ----
-tab_nbi        <- svymean(~nbi1 + nbi2 + nbi3 + nbi4 + nbi5, disenio, na.rm = TRUE)
-tab_nbi1_pobre <- svymean(~NBI1_POBRE, disenio, na.rm = TRUE)
-tab_area       <- svyby(~NBI1_POBRE, ~area,   disenio, svymean, na.rm = TRUE)
-tab_regnat     <- svyby(~NBI1_POBRE, ~region_natural, disenio, svymean, na.rm = TRUE)
+# Intervalos de confianza al 95% ----
+ci_nbi <- confint(tab_nbi)
 
-# Intervalos de confianza al 95%
-ci_nbi        <- confint(tab_nbi)
 ci_nbi1_pobre <- confint(tab_nbi1_pobre)

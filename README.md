@@ -4,3 +4,4 @@ Construcción de indicadores sociales y económicos a partir de la Encuesta Naci
 ## Índice
 1. [Pobreza monetaria y pobreza monetaria total](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/1%20Indicadores%20de%20pobreza.R)
 2. [Indicadores de necesidades básicas insatisfechas](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/2%20Necesidades%20b%C3%A1sicas%20insatisfechas.R)
+3. [Indicadores de educación](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/3%20Indicadores%20de%20educacion.R)
