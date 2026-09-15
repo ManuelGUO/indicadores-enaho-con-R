@@ -98,7 +98,7 @@ educacion <- educacion %>%
     matricula = as_factor(matricula),
     p307 = as_factor(p307),
     p306 = as_factor(p306),
-    p301a = as_factor(p301a)
+    p301a = as_factor(p301a),
     area = as_factor(area),
     region_natural = as_factor(region_natural),
   )
@@ -221,7 +221,7 @@ educacion <- educacion %>%
   mutate(
     analfabeto = case_when(
       p208a >= 15 & p204 == 1 & p302 == 2 ~ 1, # Es analfabeto
-      p208a >= 15 & p204 == 1             ~ 0, # No es analfabeto
+      p208a >= 15 & p204 == 1 ~ 0, # No es analfabeto
       TRUE ~ NA_real_
     )
   )
