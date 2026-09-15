@@ -1,7 +1,8 @@
 # indicadores-enaho-con-R
 Construcción de indicadores sociales y económicos a partir de la Encuesta Nacional de Hogares (ENAHO) siguiendo la metodología del Instituto Nacional de Estadística e Informática (INEI) usando R.
 
-Se busca construir los indicadores presentados en el Informe de Condiciones de Vida en el Perú.
+## Objetivo
+Construir los indicadores presentados por el INEI en el Informe de Condiciones de Vida en el Perú.
 
 ## Índice
 1. [Pobreza monetaria y pobreza monetaria total](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/1%20Indicadores%20de%20pobreza.R)
@@ -10,3 +11,6 @@ Se busca construir los indicadores presentados en el Informe de Condiciones de V
 4. [Indicadores de salud](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/4%20Indicadores%20de%20salud.R)
 5. [Acceso a la identidad](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/5%20Acceso%20a%20la%20identidad.R)
 6. [Acceso a programas sociales](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/6%20Acceso%20a%20programas%20sociales.R)
+
+## Referencias
+https://m.inei.gob.pe/biblioteca-virtual/boletines/condiciones-de-vida/1/#lista
