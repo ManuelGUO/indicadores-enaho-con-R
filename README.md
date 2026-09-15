@@ -11,6 +11,7 @@ Construir los indicadores presentados por el INEI en el Informe de Condiciones d
 4. [Indicadores de salud](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/4%20Indicadores%20de%20salud.R)
 5. [Acceso a la identidad](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/5%20Acceso%20a%20la%20identidad.R)
 6. [Acceso a programas sociales](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/6%20Acceso%20a%20programas%20sociales.R)
+7. [Acceso a servicios básicos](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/7%20Acceso%20a%20servicios%20basicos.R)
 
 ## Referencias
 https://m.inei.gob.pe/biblioteca-virtual/boletines/condiciones-de-vida/1/#lista
