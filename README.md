@@ -9,3 +9,4 @@ Se busca construir los indicadores presentados en el Informe de Condiciones de V
 3. [Indicadores de educación](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/3%20Indicadores%20de%20educacion.R)
 4. [Indicadores de salud](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/4%20Indicadores%20de%20salud.R)
 5. [Acceso a la identidad](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/5%20Acceso%20a%20la%20identidad.R)
+6. [Acceso a programas sociales](https://github.com/ManuelGUO/indicadores-enaho-con-R/blob/main/6%20Acceso%20a%20programas%20sociales.R)
